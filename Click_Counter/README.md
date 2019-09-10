@@ -1,4 +1,4 @@
 # Click_Counter
-Small app has 2 buttons:
-1 - increment a counter
-2 - change background color
+Small app which have 2 buttons:
+- increment a counter
+- change background color
