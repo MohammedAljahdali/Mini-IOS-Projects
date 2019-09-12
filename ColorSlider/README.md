@@ -1,2 +1,2 @@
 # Issues
-* constraints need fixing for portait view
+* constraints need fixing for landscape view
