@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RockPapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq4-m7-VyL" userLabel="Papper">
+                                <rect key="frame" x="169.5" y="420.5" width="75" height="65"/>
+                                <state key="normal" image="paper"/>
+                                <connections>
+                                    <action selector="papper" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBo-Rj-F2a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r48-IF-YHr" userLabel="Scissors">
+                                <rect key="frame" x="279.5" y="420.5" width="75" height="65"/>
+                                <state key="normal" image="scissors"/>
+                                <connections>
+                                    <segue destination="f1U-SJ-X3R" kind="modal" identifier="sicView" id="BH1-fw-5rL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXW-IM-su7" userLabel="Rock">
+                                <rect key="frame" x="59.5" y="420.5" width="75" height="65"/>
+                                <state key="normal" image="rock"/>
+                                <connections>
+                                    <action selector="rock" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAS-Fp-TgB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pq4-m7-VyL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2cM-V6-yh4"/>
+                            <constraint firstItem="pq4-m7-VyL" firstAttribute="leading" secondItem="SXW-IM-su7" secondAttribute="trailing" constant="35" id="GqR-G2-IDT"/>
+                            <constraint firstItem="r48-IF-YHr" firstAttribute="leading" secondItem="pq4-m7-VyL" secondAttribute="trailing" constant="35" id="Ufh-7Q-c8L"/>
+                            <constraint firstItem="r48-IF-YHr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Uxt-lZ-tsF"/>
+                            <constraint firstItem="pq4-m7-VyL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oyW-9M-N2E"/>
+                            <constraint firstItem="SXW-IM-su7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="sT2-Kv-aYl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="hfD-vD-k48" kind="modal" identifier="papperView" id="zvS-ou-VYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="21"/>
+        </scene>
+        <!--Rock View Controller-->
+        <scene sceneID="DAL-Nn-zHl">
+            <objects>
+                <viewController storyboardIdentifier="rockView" id="I5a-3N-b9e" customClass="RockViewController" customModule="RockPapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDh-Yv-4py">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o0" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-c6-evr" userLabel="Outcome">
+                                <rect key="frame" x="115.5" y="54" width="183" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qD0-ox-QzK">
+                                <rect key="frame" x="169" y="415" width="76" height="30"/>
+                                <state key="normal" title="Play Again!"/>
+                                <connections>
+                                    <action selector="back" destination="f1U-SJ-X3R" eventType="touchUpInside" id="NHX-dH-PAF"/>
+                                    <action selector="back" destination="I5a-3N-b9e" eventType="touchUpInside" id="tRU-Li-MxD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" You Lost!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v98-lZ-jMG" userLabel="Label Outcome">
+                                <rect key="frame" x="169.5" y="354" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qD0-ox-QzK" firstAttribute="centerX" secondItem="v98-lZ-jMG" secondAttribute="centerX" id="Feo-d5-dtT"/>
+                            <constraint firstItem="qD0-ox-QzK" firstAttribute="top" secondItem="v98-lZ-jMG" secondAttribute="bottom" constant="40" id="NWJ-qh-N5n"/>
+                            <constraint firstItem="v98-lZ-jMG" firstAttribute="centerX" secondItem="dUK-c6-evr" secondAttribute="centerX" id="kL5-bq-EpD"/>
+                            <constraint firstItem="dUK-c6-evr" firstAttribute="centerX" secondItem="zK1-67-kIW" secondAttribute="centerX" id="mSN-c3-TEc"/>
+                            <constraint firstItem="dUK-c6-evr" firstAttribute="top" secondItem="zK1-67-kIW" secondAttribute="top" constant="10" id="nGz-0c-ldH"/>
+                            <constraint firstItem="v98-lZ-jMG" firstAttribute="top" secondItem="dUK-c6-evr" secondAttribute="bottom" constant="100" id="pqc-rB-rXf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zK1-67-kIW"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="v98-lZ-jMG" id="Bqi-JN-xUI"/>
+                        <outlet property="outcome" destination="dUK-c6-evr" id="R5O-Y5-D1F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kN1-DR-Et6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4" y="741"/>
+        </scene>
+        <!--Papper View Controller-->
+        <scene sceneID="4GF-S5-5sj">
+            <objects>
+                <viewController id="hfD-vD-k48" customClass="PapperViewController" customModule="RockPapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VdT-Wb-6Y8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="o0" translatesAutoresizingMaskIntoConstraints="NO" id="R5Z-n1-ycs">
+                                <rect key="frame" x="116" y="353" width="183" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" You Lost!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEa-eG-GtX">
+                                <rect key="frame" x="170" y="744" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rea-XL-JfS">
+                                <rect key="frame" x="170" y="786" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Again!"/>
+                                <connections>
+                                    <action selector="back" destination="f1U-SJ-X3R" eventType="touchUpInside" id="EDE-UO-b0v"/>
+                                    <action selector="back" destination="hfD-vD-k48" eventType="touchUpInside" id="ZCb-h0-Aj2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ns9-JZ-GAb"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="pEa-eG-GtX" id="XkY-TH-R4x"/>
+                        <outlet property="outcome" destination="R5Z-n1-ycs" id="gM6-LX-L1h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZl-bQ-bBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="741"/>
+        </scene>
+        <!--Sic View Controller-->
+        <scene sceneID="mi0-S9-PYK">
+            <objects>
+                <viewController id="f1U-SJ-X3R" customClass="SicViewController" customModule="RockPapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D6s-8N-hB0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o0" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-iP-AsO">
+                                <rect key="frame" x="115.5" y="353" width="183" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxz-Zi-SLV">
+                                <rect key="frame" x="169" y="786" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Again!"/>
+                                <connections>
+                                    <action selector="back" destination="f1U-SJ-X3R" eventType="touchUpInside" id="3eD-6x-td8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" You Lost!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-nZ-BRr">
+                                <rect key="frame" x="169" y="744" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rEt-iP-AsO" firstAttribute="centerY" secondItem="vT6-E0-2Ik" secondAttribute="centerY" id="AfP-Kg-gS8"/>
+                            <constraint firstItem="rEt-iP-AsO" firstAttribute="centerX" secondItem="vT6-E0-2Ik" secondAttribute="centerX" id="NNT-wS-sKd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vT6-E0-2Ik"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="7fn-nZ-BRr" id="4No-6F-zD3"/>
+                        <outlet property="outcome" destination="rEt-iP-AsO" id="Q7x-Yk-vpd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eil-bc-0aE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="21"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="o0" width="183" height="200"/>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
+</document>
