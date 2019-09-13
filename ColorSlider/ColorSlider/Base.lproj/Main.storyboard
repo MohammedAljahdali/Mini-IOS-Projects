@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ExV-J5-f8v">
-                                <rect key="frame" x="20" y="144" width="374" height="90"/>
+                                <rect key="frame" x="57" y="144" width="300" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="F0Q-qV-ovm">
-                                        <rect key="frame" x="37" y="0.0" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P56-cQ-N3D" userLabel="Red">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -44,7 +44,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-X5-OhI">
-                                        <rect key="frame" x="37" y="30" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="300" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-1I-ZCu" userLabel="Green">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -65,7 +65,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZCZ-fd-JOf">
-                                        <rect key="frame" x="37" y="60" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="300" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGu-92-7AS" userLabel="Blue">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -88,7 +88,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZ1-J8-5R3">
-                                <rect key="frame" x="87" y="322" width="240" height="240"/>
+                                <rect key="frame" x="87" y="266" width="240" height="240"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xez-2D-edT" userLabel="Color View">
                                         <rect key="frame" x="4" y="4" width="232" height="232"/>
@@ -97,10 +97,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="xez-2D-edT" firstAttribute="leading" secondItem="dZ1-J8-5R3" secondAttribute="leading" constant="4" id="0dS-zv-0KZ"/>
                                     <constraint firstAttribute="bottom" secondItem="xez-2D-edT" secondAttribute="bottom" constant="4" id="CNX-x4-3en"/>
                                     <constraint firstItem="xez-2D-edT" firstAttribute="top" secondItem="dZ1-J8-5R3" secondAttribute="top" constant="4" id="CcD-1d-meA"/>
-                                    <constraint firstItem="xez-2D-edT" firstAttribute="leading" secondItem="dZ1-J8-5R3" secondAttribute="leading" constant="4" id="Ia9-8L-ATg"/>
-                                    <constraint firstAttribute="trailing" secondItem="xez-2D-edT" secondAttribute="trailing" constant="4" id="PHr-Yc-oEF"/>
+                                    <constraint firstAttribute="trailing" secondItem="xez-2D-edT" secondAttribute="trailing" constant="4" id="Q45-rk-hh2"/>
                                     <constraint firstAttribute="height" constant="240" id="fpU-iN-sI1"/>
                                     <constraint firstAttribute="width" constant="240" id="wNe-qw-ykb"/>
                                 </constraints>
@@ -108,13 +108,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ExV-J5-f8v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6rN-LS-62i"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ExV-J5-f8v" secondAttribute="trailing" constant="20" id="AsI-F9-MS3"/>
-                            <constraint firstItem="ExV-J5-f8v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="g6q-ub-KL0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dZ1-J8-5R3" secondAttribute="bottom" constant="300" id="lgm-EU-3An"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dZ1-J8-5R3" secondAttribute="trailing" constant="87" id="pWu-oe-VwO"/>
-                            <constraint firstItem="dZ1-J8-5R3" firstAttribute="top" secondItem="ExV-J5-f8v" secondAttribute="bottom" constant="88" id="vXc-ot-fDG"/>
-                            <constraint firstItem="dZ1-J8-5R3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="yjK-so-940"/>
+                            <constraint firstItem="ExV-J5-f8v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WHS-d0-Bg8"/>
+                            <constraint firstItem="ExV-J5-f8v" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="g6q-ub-KL0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dZ1-J8-5R3" secondAttribute="bottom" priority="750" constant="16" id="lgm-EU-3An"/>
+                            <constraint firstItem="dZ1-J8-5R3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rLD-Si-Mjo"/>
+                            <constraint firstItem="dZ1-J8-5R3" firstAttribute="top" secondItem="ExV-J5-f8v" secondAttribute="bottom" constant="32" id="vXc-ot-fDG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
