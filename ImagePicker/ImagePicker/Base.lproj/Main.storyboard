@@ -31,6 +31,16 @@
                                             <action selector="imagePicker:" destination="BYZ-38-t0r" id="SBB-HA-kPp"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Camera" style="plain" id="7OF-au-X9j">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hAs-Rk-iRd">
+                                            <rect key="frame" x="63.5" y="12" width="54" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Camera"/>
+                                            <connections>
+                                                <action selector="cameraImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="69a-KZ-fg3"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -38,7 +48,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="image" destination="8bC-Xf-vdC" id="UMk-O4-LjA"/>
+                        <outlet property="cameraButton" destination="hAs-Rk-iRd" id="cTk-TA-DIU"/>
+                        <outlet property="image" destination="du0-SV-Wog" id="4V6-BY-7td"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
