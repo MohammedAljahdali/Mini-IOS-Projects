@@ -17,26 +17,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
 
     ]
+    var textList: [UITextField]!
     
     // MARK: IBOUtlets
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var textFieldBottom: UITextField!
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.defaultTextAttributes = textAttributes
-        textField.text = "Write Here!"
-        textField.textAlignment = NSTextAlignment.center
-        textField.delegate = self
-        textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
+        textList = [textField, textFieldBottom]
+        for textField in textList {
+            textField.defaultTextAttributes = textAttributes
+            textField.text = "Write Here!"
+            textField.textAlignment = NSTextAlignment.center
+            textField.delegate = self
+            textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
+        }
+//        textField.defaultTextAttributes = textAttributes
+//        textField.text = "Write Here!"
+//        textField.textAlignment = NSTextAlignment.center
+//        textField.delegate = self
+//        textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
     }
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        subscribeToKeyboardNotification()
 
+    }
+    // MARK: viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeTokeyboardNotification()
+        subscribeTokeyboardWillHideNotification()
     }
     
     // MARK: IBActions
@@ -88,10 +105,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.resignFirstResponder()
         return true
     }
-    @objc func upperCaseTextField() {
+    @objc func upperCaseTextField(textField: UITextField) {
         textField.text = textField.text!.uppercased()
     }
+    // MARK: keyboard
     
+    func getKeybordHeight(_ notification: Notification) -> CGFloat{
+        let userInfo = notification.userInfo
+        let keyboardHeight = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardHeight.cgRectValue.height
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        view.frame.origin.y = -getKeybordHeight(notification)
+    }
+    func subscribeToKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    func unsubscribeTokeyboardNotification() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        view.frame.origin.y = (0) as CGFloat
+    }
+    func subscribeTokeyboardWillHideNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
 
 }
