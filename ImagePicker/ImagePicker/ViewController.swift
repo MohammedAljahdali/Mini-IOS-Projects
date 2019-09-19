@@ -31,7 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var textFieldBottom: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
         }
         shareButton.isEnabled = false
+        
     }
     
     // MARK: viewWillAppear
@@ -167,7 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func saveImage () {
-        let image = imageData(topTextFieldd: textList[0], bottomTextField: textList[1], originalImage: imageView.image, editedImage: takeEditedImage())
+        _ = imageData(topTextFieldd: textList[0], bottomTextField: textList[1], originalImage: imageView.image, editedImage: takeEditedImage())
     }
     
 
