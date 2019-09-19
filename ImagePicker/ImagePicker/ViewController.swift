@@ -18,12 +18,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     ]
     var textList: [UITextField]!
+    struct imageData {
+        let topTextFieldd: UITextField!
+        let bottomTextField: UITextField!
+        let originalImage: UIImage!
+        let editedImage: UIImage!
+    }
     
     // MARK: IBOUtlets
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var textFieldBottom: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIButton!
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -36,18 +44,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             textField.delegate = self
             textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
         }
-//        textField.defaultTextAttributes = textAttributes
-//        textField.text = "Write Here!"
-//        textField.textAlignment = NSTextAlignment.center
-//        textField.delegate = self
-//        textField.addTarget(self, action: #selector(ViewController.upperCaseTextField), for: UIControl.Event.editingChanged)
+        shareButton.isEnabled = false
     }
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotification()
-
     }
     // MARK: viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,12 +73,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         controller.sourceType = .camera
         present(controller, animated: true, completion: nil)
     }
+    @IBAction func shareView(_ sender: Any) {
+        let editedIamge = takeEditedImage()
+        let controller = UIActivityViewController(activityItems: [editedIamge], applicationActivities: nil)
+        present(controller, animated: true, completion: nil)
+        controller.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+            if completed == true {
+                self.saveImage()
+            }
+        }
+        
+    }
     
     // MARK: ImagePicker delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imageChosen = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = imageChosen
             imageView.contentMode = .scaleToFill
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
@@ -117,6 +132,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
+        if textField.isEditing {
+            return
+        }
         view.frame.origin.y = -getKeybordHeight(notification)
     }
     func subscribeToKeyboardNotification() {
@@ -131,6 +149,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func subscribeTokeyboardWillHideNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK: saving edited image objects
+    
+    func takeEditedImage () -> UIImage {
+        // hide toolbar
+        toolbar.isHidden = true
+        // take the image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let editedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        // show toolbar
+        toolbar.isHidden = false
+        return editedImage
+    }
+    
+    func saveImage () {
+        let image = imageData(topTextFieldd: textList[0], bottomTextField: textList[1], originalImage: imageView.image, editedImage: takeEditedImage())
     }
     
 
