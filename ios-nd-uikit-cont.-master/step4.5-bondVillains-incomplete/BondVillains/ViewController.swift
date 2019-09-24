@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VillainCell")!
-        let villain = self.allVillains[(indexPath as NSIndexPath).row]
+        let villain = self.allVillains[indexPath.row]
 
         // Set the name and image
         cell.textLabel?.text = villain.name
