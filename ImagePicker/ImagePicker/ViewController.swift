@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let textAttributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.blue,
         NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: 4.0,
+        NSAttributedString.Key.strokeWidth: 6.0,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
 
     ]
