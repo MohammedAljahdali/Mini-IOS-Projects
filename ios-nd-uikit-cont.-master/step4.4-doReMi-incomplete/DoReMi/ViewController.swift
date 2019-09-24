@@ -18,24 +18,32 @@ class ViewController: UIViewController, UITableViewDataSource {
     // Storyboard has been set up for you using this String.
     let cellReuseIdentifier = "MyCellReuseIdentifier"
     
-    // Choose some data to show in your table
     
-    let model: [String] = [
-        // TODO: Fill this array with data
+    let titleModel: [String] = [
+        "COCS201",
+        "COCS203",
+        "COCS307",
+        "COCS311",
+        "COCS312",
+        "COCS433"
     ]
-    
-    // MARK: UITableViewDataSource
-    
-    // Add the two essential table data source methods here
+    let detailModel: [String] = [
+    "Programming I",
+    "Programming II",
+    "Programming III",
+    "Computer Orgnaztion",
+    "Computer Architucture",
+    "Introducatio to Bioinformatic"
+]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Implement method to return the correct number of rows.
-        return 0
+        return titleModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Implement method to return cell with the correct reuseidentifier and populated with the correct data.
-        let placeholderCell = UITableViewCell()
-        return placeholderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)!
+        cell.textLabel?.text = titleModel[indexPath.row]
+        cell.detailTextLabel?.text = detailModel[indexPath.row]
+        return cell
     }
 }
