@@ -15,17 +15,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Model
     
     let favoriteThings: [String] = [
-        //TODO: Fill this array with your favorite things. Then use this collection to populate your table.
+        "Playing video games",
+        "Learning about the things that i like",
+        "Machine Learning",
+        "Programming",
+        "Data Science"
     ]
 
     // MARK: Table View Data Source Methods
     
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
-        // TODO: Implement this method to get the correct row count
-        let placeholderCount = 2
-        return placeholderCount
+        return favoriteThings.count
     }
     
     // cell for row at index path
