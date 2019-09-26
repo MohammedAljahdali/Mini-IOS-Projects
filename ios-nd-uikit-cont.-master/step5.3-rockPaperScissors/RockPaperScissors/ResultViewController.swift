@@ -43,7 +43,7 @@ class ResultViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func playAgainButtonPressed(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: Messages for Match
