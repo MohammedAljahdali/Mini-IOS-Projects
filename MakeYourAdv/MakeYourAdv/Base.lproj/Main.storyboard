@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpM-En-2MC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xMG-yo-Qqa">
+            <objects>
+                <navigationController id="gpM-En-2MC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UIy-j4-yJW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0YL-Lg-Dxz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YqV-Eq-buH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662" y="139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b8T-od-OGb">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkC-Wy-bNb">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
+                                <state key="normal" title="Choice 2"/>
+                                <connections>
+                                    <segue destination="GQB-iF-3mV" kind="show" id="fPf-JD-lf2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC5-6O-3Ud">
+                                <rect key="frame" x="0.0" y="712" width="414" height="30"/>
+                                <state key="normal" title="Choice 1"/>
+                                <connections>
+                                    <segue destination="JHd-X5-QMa" kind="show" id="OVY-ei-dWq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CkC-Wy-bNb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0dq-8p-jL4"/>
+                            <constraint firstItem="b8T-od-OGb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="SXr-dB-spE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CkC-Wy-bNb" secondAttribute="bottom" constant="40" id="Spj-DM-0ZS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b8T-od-OGb" secondAttribute="trailing" constant="10" id="Vxw-yv-9CL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nC5-6O-3Ud" secondAttribute="trailing" id="ax7-4t-npN"/>
+                            <constraint firstItem="CkC-Wy-bNb" firstAttribute="top" secondItem="nC5-6O-3Ud" secondAttribute="bottom" constant="50" id="bbq-14-tPN"/>
+                            <constraint firstItem="b8T-od-OGb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="mED-8y-cgZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CkC-Wy-bNb" secondAttribute="trailing" id="rPV-AE-2ci"/>
+                            <constraint firstItem="nC5-6O-3Ud" firstAttribute="top" secondItem="b8T-od-OGb" secondAttribute="bottom" constant="100" id="wxL-vw-EME"/>
+                            <constraint firstItem="nC5-6O-3Ud" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xOI-xF-MSv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DcG-d9-qcp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="199" y="139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Elg-VS-8Nc">
+            <objects>
+                <viewController id="JHd-X5-QMa" customClass="ViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PEe-us-MG5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LWk-jO-JFp">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du9-pM-VvU">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
+                                <state key="normal" title="Choice 4"/>
+                                <connections>
+                                    <segue destination="0r8-ED-yLK" kind="show" id="oPd-rG-WzA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJg-6w-1OC">
+                                <rect key="frame" x="0.0" y="712" width="414" height="30"/>
+                                <state key="normal" title="Choice 3"/>
+                                <connections>
+                                    <segue destination="G2m-Ez-wMQ" kind="show" id="Hzo-dt-1pe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="du9-pM-VvU" firstAttribute="top" secondItem="LJg-6w-1OC" secondAttribute="bottom" constant="50" id="0XB-Ka-hcy"/>
+                            <constraint firstItem="LJg-6w-1OC" firstAttribute="leading" secondItem="WlE-cI-cGP" secondAttribute="leading" id="Eov-sL-IEQ"/>
+                            <constraint firstItem="du9-pM-VvU" firstAttribute="leading" secondItem="WlE-cI-cGP" secondAttribute="leading" id="Jbs-W9-YTs"/>
+                            <constraint firstItem="LWk-jO-JFp" firstAttribute="top" secondItem="WlE-cI-cGP" secondAttribute="top" constant="60" id="PLB-dg-0dU"/>
+                            <constraint firstItem="WlE-cI-cGP" firstAttribute="trailing" secondItem="du9-pM-VvU" secondAttribute="trailing" id="TWY-4z-xg7"/>
+                            <constraint firstItem="WlE-cI-cGP" firstAttribute="bottom" secondItem="du9-pM-VvU" secondAttribute="bottom" constant="40" id="jPs-WL-VQA"/>
+                            <constraint firstItem="WlE-cI-cGP" firstAttribute="trailing" secondItem="LJg-6w-1OC" secondAttribute="trailing" id="nzH-bE-o3p"/>
+                            <constraint firstItem="WlE-cI-cGP" firstAttribute="trailing" secondItem="LWk-jO-JFp" secondAttribute="trailing" constant="10" id="qhO-Tc-OTf"/>
+                            <constraint firstItem="LJg-6w-1OC" firstAttribute="top" secondItem="LWk-jO-JFp" secondAttribute="bottom" constant="100" id="tKb-KH-noF"/>
+                            <constraint firstItem="LWk-jO-JFp" firstAttribute="leading" secondItem="WlE-cI-cGP" secondAttribute="leading" constant="10" id="zjD-Kz-bqm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WlE-cI-cGP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cNA-Mx-Gl4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Juh-Sb-C9V" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="-287"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="igm-Pd-iE1">
+            <objects>
+                <viewController id="GQB-iF-3mV" customClass="ViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qT0-P7-O6h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tay-Hf-pze">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-ep-lQf">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
+                                <state key="normal" title="Choice 6"/>
+                                <connections>
+                                    <segue destination="4ST-EQ-1Up" kind="show" id="CMm-Pl-RsX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQt-Fs-sMy">
+                                <rect key="frame" x="0.0" y="712" width="414" height="30"/>
+                                <state key="normal" title="Choice 5"/>
+                                <connections>
+                                    <segue destination="boQ-9S-Yvu" kind="show" id="U38-vv-aHI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="h4e-ep-lQf" firstAttribute="leading" secondItem="2pz-Iw-LKm" secondAttribute="leading" id="8RZ-qI-ESs"/>
+                            <constraint firstItem="jQt-Fs-sMy" firstAttribute="leading" secondItem="2pz-Iw-LKm" secondAttribute="leading" id="AlW-I5-VMo"/>
+                            <constraint firstItem="jQt-Fs-sMy" firstAttribute="top" secondItem="Tay-Hf-pze" secondAttribute="bottom" constant="100" id="BQK-YW-yAr"/>
+                            <constraint firstItem="Tay-Hf-pze" firstAttribute="top" secondItem="2pz-Iw-LKm" secondAttribute="top" constant="60" id="Iym-E0-zSk"/>
+                            <constraint firstItem="2pz-Iw-LKm" firstAttribute="trailing" secondItem="Tay-Hf-pze" secondAttribute="trailing" constant="10" id="aZc-sm-UhQ"/>
+                            <constraint firstItem="2pz-Iw-LKm" firstAttribute="trailing" secondItem="jQt-Fs-sMy" secondAttribute="trailing" id="amp-F1-2tL"/>
+                            <constraint firstItem="2pz-Iw-LKm" firstAttribute="bottom" secondItem="h4e-ep-lQf" secondAttribute="bottom" constant="40" id="dJ2-SN-2lN"/>
+                            <constraint firstItem="Tay-Hf-pze" firstAttribute="leading" secondItem="2pz-Iw-LKm" secondAttribute="leading" constant="10" id="oHT-UO-7lw"/>
+                            <constraint firstItem="h4e-ep-lQf" firstAttribute="top" secondItem="jQt-Fs-sMy" secondAttribute="bottom" constant="50" id="prg-vO-i8q"/>
+                            <constraint firstItem="2pz-Iw-LKm" firstAttribute="trailing" secondItem="h4e-ep-lQf" secondAttribute="trailing" id="sOt-2f-pMb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2pz-Iw-LKm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Pp-ld-aib"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jA-K2-7a1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="412"/>
+        </scene>
+        <!--End View Controller-->
+        <scene sceneID="02W-4b-O1N">
+            <objects>
+                <viewController id="G2m-Ez-wMQ" customClass="EndViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BFj-df-KvR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-Ff-omq">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ktX-jP-Jme" firstAttribute="trailing" secondItem="sCC-Ff-omq" secondAttribute="trailing" constant="10" id="65B-cb-toj"/>
+                            <constraint firstItem="sCC-Ff-omq" firstAttribute="top" secondItem="ktX-jP-Jme" secondAttribute="top" constant="60" id="T4G-VO-CKc"/>
+                            <constraint firstItem="sCC-Ff-omq" firstAttribute="leading" secondItem="ktX-jP-Jme" secondAttribute="leading" constant="10" id="Xfz-Pi-CvO"/>
+                            <constraint firstItem="ktX-jP-Jme" firstAttribute="bottom" secondItem="sCC-Ff-omq" secondAttribute="bottom" constant="250" id="pup-ox-cj5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ktX-jP-Jme"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wNe-MN-Tfu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f28-Ga-fNk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="-865"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YgO-R9-805">
+            <objects>
+                <viewController id="boQ-9S-Yvu" customClass="ViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RHt-qb-8fN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vlj-Do-CTF">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N62-Vi-ntI">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
+                                <state key="normal" title="Choice 12"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5W-NX-wcX">
+                                <rect key="frame" x="0.0" y="712" width="414" height="30"/>
+                                <state key="normal" title="Choice 11"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vlj-Do-CTF" firstAttribute="top" secondItem="7nF-CX-C4E" secondAttribute="top" constant="60" id="7NU-lE-jO4"/>
+                            <constraint firstItem="7nF-CX-C4E" firstAttribute="trailing" secondItem="Vlj-Do-CTF" secondAttribute="trailing" constant="10" id="8xL-Uh-oog"/>
+                            <constraint firstItem="7nF-CX-C4E" firstAttribute="trailing" secondItem="u5W-NX-wcX" secondAttribute="trailing" id="HZT-pP-dw4"/>
+                            <constraint firstItem="N62-Vi-ntI" firstAttribute="top" secondItem="u5W-NX-wcX" secondAttribute="bottom" constant="50" id="I2f-cF-Yy0"/>
+                            <constraint firstItem="N62-Vi-ntI" firstAttribute="leading" secondItem="7nF-CX-C4E" secondAttribute="leading" id="SQZ-ez-PCY"/>
+                            <constraint firstItem="u5W-NX-wcX" firstAttribute="leading" secondItem="7nF-CX-C4E" secondAttribute="leading" id="VzC-kF-OD3"/>
+                            <constraint firstItem="7nF-CX-C4E" firstAttribute="trailing" secondItem="N62-Vi-ntI" secondAttribute="trailing" id="Wqz-Zs-IND"/>
+                            <constraint firstItem="u5W-NX-wcX" firstAttribute="top" secondItem="Vlj-Do-CTF" secondAttribute="bottom" constant="100" id="anI-8E-q3W"/>
+                            <constraint firstItem="7nF-CX-C4E" firstAttribute="bottom" secondItem="N62-Vi-ntI" secondAttribute="bottom" constant="40" id="eXd-yr-eRx"/>
+                            <constraint firstItem="Vlj-Do-CTF" firstAttribute="leading" secondItem="7nF-CX-C4E" secondAttribute="leading" constant="10" id="ubO-OJ-sg1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7nF-CX-C4E"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NcO-5X-cqI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2j-je-eKt" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="449"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ne0-q6-24P">
+            <objects>
+                <viewController id="4ST-EQ-1Up" customClass="ViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JKI-m4-aNV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-PN-KOh">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npu-4o-jhv">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
+                                <state key="normal" title="Choice 14"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQS-7S-zkQ">
+                                <rect key="frame" x="0.0" y="712" width="414" height="30"/>
+                                <state key="normal" title="Choice 13"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c0D-PN-KOh" firstAttribute="top" secondItem="08G-DJ-ODt" secondAttribute="top" constant="60" id="RYY-sA-b2T"/>
+                            <constraint firstItem="c0D-PN-KOh" firstAttribute="leading" secondItem="08G-DJ-ODt" secondAttribute="leading" constant="10" id="WCt-vx-jBz"/>
+                            <constraint firstItem="08G-DJ-ODt" firstAttribute="trailing" secondItem="GQS-7S-zkQ" secondAttribute="trailing" id="YDb-N8-TOl"/>
+                            <constraint firstItem="GQS-7S-zkQ" firstAttribute="leading" secondItem="08G-DJ-ODt" secondAttribute="leading" id="dlU-11-3h3"/>
+                            <constraint firstItem="npu-4o-jhv" firstAttribute="top" secondItem="GQS-7S-zkQ" secondAttribute="bottom" constant="50" id="lzv-3J-RQD"/>
+                            <constraint firstItem="npu-4o-jhv" firstAttribute="leading" secondItem="08G-DJ-ODt" secondAttribute="leading" id="mBL-w5-Mm9"/>
+                            <constraint firstItem="GQS-7S-zkQ" firstAttribute="top" secondItem="c0D-PN-KOh" secondAttribute="bottom" constant="100" id="n8A-7a-XKj"/>
+                            <constraint firstItem="08G-DJ-ODt" firstAttribute="trailing" secondItem="c0D-PN-KOh" secondAttribute="trailing" constant="10" id="pXU-KI-a9O"/>
+                            <constraint firstItem="08G-DJ-ODt" firstAttribute="trailing" secondItem="npu-4o-jhv" secondAttribute="trailing" id="pcf-Av-vqZ"/>
+                            <constraint firstItem="08G-DJ-ODt" firstAttribute="bottom" secondItem="npu-4o-jhv" secondAttribute="bottom" constant="40" id="zlg-2r-mBA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="08G-DJ-ODt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J7e-5g-SMO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gte-Pu-yyb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="1148"/>
+        </scene>
+        <!--End View Controller-->
+        <scene sceneID="R85-WM-jsG">
+            <objects>
+                <viewController id="0r8-ED-yLK" customClass="EndViewController" customModule="MakeYourAdv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VFL-Ei-vks">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-Qa-3Sm">
+                                <rect key="frame" x="10" y="148" width="394" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7SR-gK-ueE" firstAttribute="trailing" secondItem="zCi-Qa-3Sm" secondAttribute="trailing" constant="10" id="KmB-Ta-r4W"/>
+                            <constraint firstItem="7SR-gK-ueE" firstAttribute="bottom" secondItem="zCi-Qa-3Sm" secondAttribute="bottom" constant="250" id="LBj-kT-ePV"/>
+                            <constraint firstItem="zCi-Qa-3Sm" firstAttribute="top" secondItem="7SR-gK-ueE" secondAttribute="top" constant="60" id="VLG-P7-jEX"/>
+                            <constraint firstItem="zCi-Qa-3Sm" firstAttribute="leading" secondItem="7SR-gK-ueE" secondAttribute="leading" constant="10" id="fK8-dN-Uac"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7SR-gK-ueE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bvR-VW-bkG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3P-Lq-qt1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="-216"/>
+        </scene>
+    </scenes>
+</document>
