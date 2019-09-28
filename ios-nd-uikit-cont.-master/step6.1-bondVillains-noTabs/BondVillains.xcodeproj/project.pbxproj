@@ -14,6 +14,9 @@
 		4D04CC0C1A1D1E5700FAB0D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D04CC0A1A1D1E5700FAB0D8 /* LaunchScreen.xib */; };
 		4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04CC211A1D261800FAB0D8 /* Villain.swift */; };
 		4D1828D81A3BCDD5005D80E9 /* VillainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1828D71A3BCDD5005D80E9 /* VillainDetailViewController.swift */; };
+		73FECDB6233ED6D800DEAAD8 /* BondVillainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FECDB5233ED6D800DEAAD8 /* BondVillainTableViewCell.swift */; };
+		73FECDB8233EE21C00DEAAD8 /* BondVillainsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FECDB7233EE21C00DEAAD8 /* BondVillainsCollectionVC.swift */; };
+		73FECDBB233EE45C00DEAAD8 /* BondVillainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FECDBA233EE45C00DEAAD8 /* BondVillainCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		4D04CC0B1A1D1E5700FAB0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4D04CC211A1D261800FAB0D8 /* Villain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Villain.swift; sourceTree = "<group>"; };
 		4D1828D71A3BCDD5005D80E9 /* VillainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainDetailViewController.swift; sourceTree = "<group>"; };
+		73FECDB5233ED6D800DEAAD8 /* BondVillainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondVillainTableViewCell.swift; sourceTree = "<group>"; };
+		73FECDB7233EE21C00DEAAD8 /* BondVillainsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondVillainsCollectionVC.swift; sourceTree = "<group>"; };
+		73FECDBA233EE45C00DEAAD8 /* BondVillainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondVillainCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,13 @@
 			children = (
 				4D04CC011A1D1E5700FAB0D8 /* AppDelegate.swift */,
 				4D04CC031A1D1E5700FAB0D8 /* ViewController.swift */,
+				73FECDB7233EE21C00DEAAD8 /* BondVillainsCollectionVC.swift */,
 				4D1828D71A3BCDD5005D80E9 /* VillainDetailViewController.swift */,
 				4D04CC211A1D261800FAB0D8 /* Villain.swift */,
 				4D04CC051A1D1E5700FAB0D8 /* Main.storyboard */,
 				4D04CC0A1A1D1E5700FAB0D8 /* LaunchScreen.xib */,
 				4D04CC081A1D1E5700FAB0D8 /* Images.xcassets */,
+				73FECDB9233EE42600DEAAD8 /* Cells */,
 				4D04CBFF1A1D1E5700FAB0D8 /* Supporting Files */,
 			);
 			path = BondVillains;
@@ -76,6 +84,15 @@
 				4D04CC001A1D1E5700FAB0D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73FECDB9233EE42600DEAAD8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				73FECDB5233ED6D800DEAAD8 /* BondVillainTableViewCell.swift */,
+				73FECDBA233EE45C00DEAAD8 /* BondVillainCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +169,9 @@
 			files = (
 				4D04CC041A1D1E5700FAB0D8 /* ViewController.swift in Sources */,
 				4D04CC021A1D1E5700FAB0D8 /* AppDelegate.swift in Sources */,
+				73FECDBB233EE45C00DEAAD8 /* BondVillainCollectionViewCell.swift in Sources */,
+				73FECDB6233ED6D800DEAAD8 /* BondVillainTableViewCell.swift in Sources */,
+				73FECDB8233EE21C00DEAAD8 /* BondVillainsCollectionVC.swift in Sources */,
 				4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */,
 				4D1828D81A3BCDD5005D80E9 /* VillainDetailViewController.swift in Sources */,
 			);

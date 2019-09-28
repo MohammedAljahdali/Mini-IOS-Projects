@@ -14,7 +14,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Properties
-    
+    let allVillains = Villain.allVillains
     var window: UIWindow?
     
     // MARK: UIApplicationDelegate

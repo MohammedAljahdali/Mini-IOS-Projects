@@ -16,8 +16,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Get ahold of some villains, for the table
     // This is an array of Villain instances
-    let allVillains = Villain.allVillains
     
+    let allVillains: [Villain] = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let villains = appDelegate.allVillains
+        return villains
+    }()
     // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,18 +30,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VillainCell")! 
-        let villain = self.allVillains[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VillainCell")! as! BondVillainTableViewCell
         
-        // Set the name and image
-        cell.textLabel?.text = villain.name
-        cell.imageView?.image = UIImage(named: villain.imageName)
-        
-        // If the cell has a detail label, we will put the evil scheme in.
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = "Scheme: \(villain.evilScheme)"
-        }
-        
+        let villain = allVillains[indexPath.row]
+        cell.bondVillainImageView.image = UIImage(named: villain.imageName)
+        cell.bondVillainImageView.contentMode = .scaleAspectFit
+        cell.bondVillainNameLabel.text = villain.name
+        cell.bondVillainSchemeLabel.text = villain.evilScheme
         return cell
     }
     
@@ -46,5 +45,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
         detailController.villain = self.allVillains[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 177
     }
 }
