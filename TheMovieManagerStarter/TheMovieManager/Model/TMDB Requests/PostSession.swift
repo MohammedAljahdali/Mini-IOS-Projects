@@ -8,4 +8,6 @@
 
 import Foundation
 
-
+struct PostSession: Codable {
+    let request_token: String    
+}
