@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginViaWebsiteTapped() {
-        performSegue(withIdentifier: "completeLogin", sender: nil)
+        TMDBClient.requestToken(completion: webAuthHandler(success:error:))
     }
     
     func requestTokenCompletionHandler(success: Bool, error: Error?) {
@@ -52,5 +52,12 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
+    func webAuthHandler(success: Bool, error: Error?) {
+        if success {
+            DispatchQueue.main.async {
+            UIApplication.shared.open(TMDBClient.Endpoints.webAuth.url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+        
 }
