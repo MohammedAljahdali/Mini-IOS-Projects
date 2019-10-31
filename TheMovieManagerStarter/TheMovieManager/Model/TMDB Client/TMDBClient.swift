@@ -10,7 +10,7 @@ import Foundation
 
 class TMDBClient {
     
-    static let apiKey = "YOUR_TMDB_API_KEY"
+    static let apiKey = "83e6c1d9fac15ba96b32f29a2bcfd17f"
     
     struct Auth {
         static var accountId = 0
@@ -21,18 +21,36 @@ class TMDBClient {
     enum Endpoints {
         static let base = "https://api.themoviedb.org/3"
         static let apiKeyParam = "?api_key=\(TMDBClient.apiKey)"
+
         
         case getWatchlist
-        
+        case getRequestToken
         var stringValue: String {
             switch self {
             case .getWatchlist: return Endpoints.base + "/account/\(Auth.accountId)/watchlist/movies" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
+            case .getRequestToken: return Endpoints.base + "/authentication/token/new" + Endpoints.apiKeyParam
             }
         }
         
         var url: URL {
             return URL(string: stringValue)!
         }
+    }
+    
+    class func requestToeknToken(completion: @escaping (Bool, Error?)-> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.getRequestToken.url) { (data, response, error) in
+            guard let data = data else {print(0); completion(false, error); return}
+            let decoder = JSONDecoder()
+            do {
+                let token = try decoder.decode(RequestTokenResponse.self, from: data)
+                Auth.requestToken = token.request_token
+                completion(true, nil)
+            } catch {
+                print(1)
+                completion(false, error)
+            }
+        }
+        task.resume()
     }
     
     class func getWatchlist(completion: @escaping ([Movie], Error?) -> Void) {
