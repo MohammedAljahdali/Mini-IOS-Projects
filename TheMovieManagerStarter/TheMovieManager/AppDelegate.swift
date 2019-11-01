@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if components?.scheme == "themoviemanager" && components?.path == "authenticate" {
         let loginVC = window?.rootViewController as! LoginViewController
-        TMDBClient.session(completion: loginVC.sessionHandler(success:error:))
+        TMDBClient.createSession(completion: loginVC.sessionHandler(success:error:))
         }
         return true
     }
