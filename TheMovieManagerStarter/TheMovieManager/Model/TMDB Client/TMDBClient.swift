@@ -28,6 +28,8 @@ class TMDBClient {
         case getSession
         case webAuth
         case logout
+        case getFavoriteList
+        case getSearchResults(query: String)
         
         var stringValue: String {
             switch self {
@@ -37,6 +39,8 @@ class TMDBClient {
             case .getSession: return Endpoints.base + "/authentication/session/new" + Endpoints.apiKeyParam
             case .webAuth: return "https://www.themoviedb.org/authenticate/\(Auth.requestToken)?redirect_to=themoviemanager:authenticate"
             case .logout: return Endpoints.base + "/authentication/session" + Endpoints.apiKeyParam
+            case .getFavoriteList: return Endpoints.base + "/account/\(Auth.accountId)/favorite/movies" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
+            case .getSearchResults(let query): return Endpoints.base + "/search/movie" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
             }
         }
         
@@ -78,11 +82,7 @@ class TMDBClient {
     }
     
     class func logout(complettion: @escaping () -> Void) {
-        var request = URLRequest(url: Endpoints.logout.url)
-        let body = LogoutRequest(session_id: Auth.sessionId)
-        request.httpMethod = "DELETE"
-        request.httpBody = try! JSONEncoder().encode(body)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let request = POSTRequest(url: Endpoints.logout.url, body: LogoutRequest(session_id: Auth.sessionId), method: "DELETE")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             Auth.requestToken = ""
             Auth.sessionId = ""
@@ -95,51 +95,55 @@ class TMDBClient {
         let request = POSTRequest(url: Endpoints.getSession.url, body: PostSession(request_token: Auth.requestToken), method: "POST")
         GETRequest(request: request, response: SessionResponse.self) { (response, error) in
             if let  response = response {
-                completion(true, nil)
+                Auth.sessionId = response.sessionId
+                print(response.sessionId+"11")
+                DispatchQueue.main.async{completion(true, nil)}
             } else {completion(false, error)}
         }
     }
     
     class func login(completion: @escaping (Bool, Error?) -> Void, username: String, password: String) {
-        var request = URLRequest(url: Endpoints.getLogin.url)
-        let login = LoginRequest(username: username, password: password, requestToken: Auth.requestToken)
-        request.httpMethod = "POST"
-        request.httpBody = try! JSONEncoder().encode(login)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {print("requestLogin task error"); completion(false, error); return}
-            let decoder = JSONDecoder()
-            do {
-                let requestObject = try decoder.decode(RequestTokenResponse.self, from: data)
-                Auth.requestToken = requestObject.request_token
+        let request = POSTRequest(url: Endpoints.getLogin.url, body: LoginRequest(username: username, password: password, requestToken: Auth.requestToken), method: "POST")
+        GETRequest(request: request, response: RequestTokenResponse.self) { (response, error) in
+            if let response = response {
+                print(response.request_token+"22")
+                Auth.requestToken = response.request_token
                 completion(true, nil)
-            } catch { print("requestLogin 2"); completion(false, error); return }
+            } else {completion(false, error)}
         }
-        task.resume()
     }
     
     class func requestToken(completion: @escaping (Bool, Error?)-> Void) {
-        let task = URLSession.shared.dataTask(with: Endpoints.getRequestToken.url) { (data, response, error) in
-            guard let data = data else {print("request token error"); completion(false, error); return}
-            let decoder = JSONDecoder()
-            do {
-                let token = try decoder.decode(RequestTokenResponse.self, from: data)
-                Auth.requestToken = token.request_token
+        GETRequest(url: Endpoints.getRequestToken.url, response: RequestTokenResponse.self) { (response, error) in
+            if let response = response {
+                print(response.request_token+"hello")
+                Auth.requestToken = response.request_token
                 completion(true, nil)
-            } catch {print("request Token error 1"); completion(false, error)}
+            } else {DispatchQueue.main.async{completion(false, error)}}
         }
-        task.resume()
     }
     
     class func getWatchlist(completion: @escaping ([Movie], Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: Endpoints.getWatchlist.url) { data, response, error in
-            guard let data = data else {completion([], error); return}
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(MovieResults.self, from: data)
-                completion(responseObject.results, nil)
-            } catch {completion([], error)}
+        GETRequest(url: Endpoints.getWatchlist.url, response: MovieResults.self) { (response, error) in
+            if let response = response {
+                completion(response.results, nil)
+            } else {completion([], error)}
         }
-        task.resume()
+    }
+    
+    class func getFavoriteList(completion: @escaping ([Movie], Error?) -> Void) {
+        GETRequest(url: Endpoints.getFavoriteList.url, response: MovieResults.self) { (response, error) in
+            if let response = response {
+                completion(response.results,nil)
+            } else {completion([], error)}
+        }
+    }
+    
+    class func getSearchResults(query: String, completion: @escaping ([Movie], Error?) -> Void) {
+        GETRequest(url: Endpoints.getSearchResults(query: query).url, response: MovieResults.self) { (response, error) in
+            if let response = response {
+                completion(response.results, nil)
+            } else {completion([], error)}
+        }
     }
 }

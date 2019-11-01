@@ -33,9 +33,8 @@ class LoginViewController: UIViewController {
     func requestTokenCompletionHandler(success: Bool, error: Error?) {
         if success {
             print(TMDBClient.Auth.requestToken)
-            DispatchQueue.main.async {
-                TMDBClient.login(completion: self.requestLoginCompletionHandler(success:error:), username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")
-            }
+            TMDBClient.login(completion: self.requestLoginCompletionHandler(success:error:), username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")
+            
         }
     }
     
@@ -47,9 +46,7 @@ class LoginViewController: UIViewController {
     }
     func sessionHandler(success: Bool, error: Error?) {
         if success {
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "completeLogin", sender: nil)
-            }
+            self.performSegue(withIdentifier: "completeLogin", sender: nil)
         }
     }
     func webAuthHandler(success: Bool, error: Error?) {

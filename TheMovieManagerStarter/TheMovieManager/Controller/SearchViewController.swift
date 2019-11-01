@@ -23,13 +23,21 @@ class SearchViewController: UIViewController {
             detailVC.movie = movies[selectedIndex]
         }
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func getSearchResultsHelper(list: [Movie], error: Error?) {
+        movies = list
+        tableView.reloadData()
+    }
     
 }
 
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        TMDBClient.getSearchResults(query: searchText, completion: getSearchResultsHelper(list:error:))
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
