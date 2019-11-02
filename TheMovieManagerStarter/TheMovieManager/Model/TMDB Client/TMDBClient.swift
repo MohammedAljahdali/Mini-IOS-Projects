@@ -31,6 +31,8 @@ class TMDBClient {
         case getFavoriteList
         case getSearchResults(query: String)
         case addToWatchlist
+        case addToFavorite
+        case getPoster(String)
         
         var stringValue: String {
             switch self {
@@ -43,7 +45,8 @@ class TMDBClient {
             case .getFavoriteList: return Endpoints.base + "/account/\(Auth.accountId)/favorite/movies" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
             case .getSearchResults(let query): return Endpoints.base + "/search/movie" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
             case .addToWatchlist: return Endpoints.base + "/account/\(Auth.accountId)/watchlist" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
-
+            case .addToFavorite: return Endpoints.base + "/account/\(Auth.accountId)/favorite" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
+            case .getPoster(let posterPath): return "https://image.tmdb.org/t/p/w500/" + posterPath
             }
         }
         
@@ -159,5 +162,23 @@ class TMDBClient {
                 completion(success,nil)
             } else {print(error); completion(false, error)}
         }
+    }
+    class func addToFavorite(body: MarkFavorite, completion: @escaping (Bool, Error?) -> Void) {
+        let request = POSTRequest(url: Endpoints.addToFavorite.url, body: body, method: "POST")
+        GETRequest(request: request, response: TMDBResponse.self) { (response, error) in
+            if let response = response {
+                print(response)
+                let success = response.statusCode == 1 || response.statusCode == 12 || response.statusCode == 13
+                completion(success,nil)
+            } else {print(error); completion(false, error)}
+        }
+    }
+    
+    class func downloadPoster(path: String, completion: @escaping (Data?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.getPoster(path).url) { (data, response, error) in
+            guard let data = data else {completion(nil,error); return}
+            completion(data,nil)
+        }
+        task.resume()   
     }
 }

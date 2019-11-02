@@ -15,7 +15,7 @@ struct MarkFavorite: Encodable {
     
     enum CodingKeys: String, CodingKey {
         case mediaType = "media_type"
-        case mediaId = " media_id"
+        case mediaId = "media_id"
         case favorite
     }
 }
