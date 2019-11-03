@@ -54,7 +54,7 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
         
         let movie = MovieModel.watchlist[indexPath.row]
-        
+        cell.imageView?.image = UIImage(named: "PosterPlaceholder")
         cell.textLabel?.text = movie.title
         if let path = movie.posterPath {
             TMDBClient.downloadPoster(path: path) { (data, error) in

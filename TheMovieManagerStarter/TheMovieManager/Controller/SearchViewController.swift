@@ -16,6 +16,7 @@ class SearchViewController: UIViewController {
     var movies = [Movie]()
     
     var selectedIndex = 0
+    var currentSearchTask: URLSessionTask?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
@@ -37,7 +38,8 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        TMDBClient.getSearchResults(query: searchText, completion: getSearchResultsHelper(list:error:))
+        currentSearchTask?.cancel()
+        currentSearchTask = TMDBClient.getSearchResults(query: searchText, completion: getSearchResultsHelper(list:error:))
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -70,7 +72,16 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let movie = movies[indexPath.row]
         
         cell.textLabel?.text = "\(movie.title) - \(movie.releaseYear)"
-        
+        cell.imageView?.image = UIImage(named: "PosterPlaceholder")
+        if let path = movie.posterPath {
+            TMDBClient.downloadPoster(path: path) { (data, error) in
+                guard let data = data else {return}
+                DispatchQueue.main.async {
+                cell.imageView?.image = UIImage(data: data)
+                cell.setNeedsLayout()
+                }
+            }
+        }
         return cell
     }
     

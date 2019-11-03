@@ -81,6 +81,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VIv-49-39F">
+                                <rect key="frame" x="177.5" y="456" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This product uses the TMDb API but is not endorsed or certified by TMDb." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EU-Nu-cBG">
                                 <rect key="frame" x="16" y="606" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -96,6 +99,8 @@
                             <constraint firstItem="SyQ-Nw-CjV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BUC-Z8-Xca"/>
                             <constraint firstItem="6au-LF-Utu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LyA-LB-78e"/>
                             <constraint firstItem="n8z-V4-qAW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qb3-dY-kET"/>
+                            <constraint firstItem="VIv-49-39F" firstAttribute="centerX" secondItem="6au-LF-Utu" secondAttribute="centerX" id="WIO-Cr-uAe"/>
+                            <constraint firstItem="VIv-49-39F" firstAttribute="top" secondItem="6au-LF-Utu" secondAttribute="bottom" constant="8" id="Wz4-NH-4qk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9EU-Nu-cBG" secondAttribute="trailing" constant="16" id="YMD-so-pgt"/>
                             <constraint firstItem="9EU-Nu-cBG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="aMw-l6-3rG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6au-LF-Utu" secondAttribute="trailing" constant="16" id="c34-4Z-ddZ"/>
@@ -106,6 +111,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="VIv-49-39F" id="NeG-bt-oLe"/>
                         <outlet property="emailTextField" destination="qrT-hl-seK" id="kNU-Rr-pdO"/>
                         <outlet property="loginButton" destination="XfA-1k-xWc" id="gzO-wf-ODd"/>
                         <outlet property="loginViaWebsiteButton" destination="OHw-m7-7gh" id="Ghg-Tm-X1E"/>
