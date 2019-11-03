@@ -37,8 +37,10 @@ class LoginViewController: UIViewController {
         if success {
             print(TMDBClient.Auth.requestToken)
             TMDBClient.login(completion: self.requestLoginCompletionHandler(success:error:), username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")
-            
+        } else {
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
+        
     }
     
     func requestLoginCompletionHandler(success: Bool, error: Error?) {
@@ -48,14 +50,21 @@ class LoginViewController: UIViewController {
             TMDBClient.createSession(completion: self.sessionHandler(success:error:))
         } else {
             isLoggingIn(false)
-            print("try again")
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
         
+    }
+    func showLoginFailure(message: String) {
+        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
     }
     
     func sessionHandler(success: Bool, error: Error?) {
         if success {
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
+        } else {
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
     }
     
@@ -64,6 +73,8 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
             UIApplication.shared.open(TMDBClient.Endpoints.webAuth.url, options: [:], completionHandler: nil)
             }
+        } else {
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
     }
     
